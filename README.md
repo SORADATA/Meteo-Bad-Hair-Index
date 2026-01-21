@@ -9,7 +9,7 @@
 
 **Pipeline ETL intelligent pour prédire les pires moments capillaires de votre journée**
 
-[📊 Résultats](#-aperçu-des-résultats) • [⚙️ Installation](#-installation-rapide) • [🧮 Méthodologie](#-méthodologie--le-bad-hair-index)
+[📊 Résultats](#-aperçu-des-résultats) • [⚙️ Installation](#-installation-rapide) • [🧮 Méthodologie](#-méthodologie--le-bad-hair-index) • [📧 Contact](#-contact)
 
 </div>
 
@@ -46,7 +46,8 @@ Ce projet construit un système d'analyse météorologique prédictive basé sur
 | **13h - 14h** | ~610 | 🟢 **Optimal** | Fenêtre idéale pour les sorties |
 | **18h - 20h** | 680+ | 🟠 **Modéré** | Spray anti-frisottis recommandé |
 
-**📈 Analyse Détaillée :**
+#### 📈 Analyse Détaillée
+
 🔴 Pic Matinal (8h-9h)
 └─ Combinaison humidité résiduelle + vent montant
 └─ Action : Coiffure protectrice ou bonnet
@@ -88,6 +89,7 @@ graph LR
     D --> E[Calculate Index]
     E --> F[📊 Visualisation<br/>Seaborn]
     F --> G[💾 Export PNG]
+Détail des Technologies
 Composant	Technologie	Rôle
 Extraction	requests	Appels API REST (Nominatim + Open-Meteo)
 Transformation	pandas	Nettoyage JSON, parsing temporel
@@ -128,19 +130,19 @@ Index	Catégorie	Risque	Action Recommandée
 700-900	🟠 Élevé	Important	Coiffure protectrice
 > 900	🔴 Critique	Maximal	Éviter toute sortie
 🔬 Justification Scientifique
-Humidité Relative (%)
+1. Humidité Relative (%)
 
 Provoque le gonflement de la cuticule capillaire
 
 Responsable des frisottis et de la perte de volume
 
-Vitesse du Vent (km/h)
+2. Vitesse du Vent (km/h)
 
 Amplifie le désordre mécanique
 
 Cause l'emmêlement et la déshydratation
 
-Interaction Multiplicative
+3. Interaction Multiplicative
 
 L'effet est synergique (non additif)
 
@@ -161,7 +163,7 @@ Connexion Internet (appels API)
 Étapes
 bash
 # 1. Cloner le projet
-git clone https://github.com/votre-username/bad-hair-predictor.git
+git clone https://github.com/MoussaTheAnalyst/bad-hair-predictor.git
 cd bad-hair-predictor
 
 # 2. Installer les dépendances
@@ -169,6 +171,17 @@ pip install pandas seaborn matplotlib requests
 
 # 3. Lancer le notebook
 jupyter notebook main.ipynb
+Installation via Requirements (Recommandé)
+bash
+# Créer un fichier requirements.txt avec :
+pandas>=2.0.0
+seaborn>=0.12.0
+matplotlib>=3.7.0
+requests>=2.31.0
+numpy>=1.24.0
+
+# Installer
+pip install -r requirements.txt
 💻 Utilisation
 Mode Notebook (Recommandé)
 Ouvrez main.ipynb dans Jupyter
@@ -243,22 +256,16 @@ Ouvrez une Pull Request
 
 📧 Contact
 Moussa SISSOKO
-🎓 Master 2 Économie Appliquée - Université de Lorraine
-📧 Email : moussa.sissoko6@etu.univ-lorraine.fr
 💼 LinkedIn : linkedin.com/in/moussa-sissoko
 🐙 GitHub : @MoussaTheAnalyst
 
 ⚖️ Licence
 Ce projet est sous licence MIT. Consultez le fichier LICENSE pour plus de détails.
 
-🙏 Remerciements
-Open-Meteo API pour les données météorologiques gratuites
-
-Nominatim (OpenStreetMap) pour le géocodage
 
 Seaborn/Matplotlib pour les visualisations
 
-Université de Lorraine pour l'encadrement académique
+
 
 <div align="center">
 ⭐ Si ce projet vous a été utile, n'hésitez pas à lui donner une étoile !
