@@ -19,7 +19,7 @@
 
 Analyse prédictive des conditions météorologiques défavorables pour la coiffure via le **Bad Hair Index**, combinant humidité et vitesse du vent pour identifier les créneaux horaires à éviter.
 
-**Contexte :** Projet Python - Master 2 Économie Appliquée  
+ 
 **Compétences :** Pipeline ETL • Feature Engineering • Data Visualization
 
 ---
@@ -136,10 +136,10 @@ bad-hair-predictor/
 
 ## 🔮 Évolutions Futures
 
-- API REST pour intégration web/mobile
-- Dashboard interactif (Streamlit)
-- Modèle ML pour prédictions à 14 jours
-- Notifications automatiques (SMS/Email)
+- API rest
+- API meteo
+  
+
 
 ---
 
