@@ -9,7 +9,7 @@
 
 **Pipeline ETL intelligent pour prédire les pires moments capillaires de votre journée**
 
-[📊 Résultats](#-aperçu-des-résultats) • [⚙️ Installation](#-installation-rapide) • [🧮 Méthodologie](#-méthodologie--le-bad-hair-index) • [📧 Contact](#-contact)
+[📊 Résultats](#aperçu-des-résultats) • [⚙️ Installation](#installation-rapide) • [🧮 Méthodologie](#méthodologie--le-bad-hair-index) • [📧 Contact](#contact)
 
 </div>
 
@@ -46,21 +46,11 @@ Ce projet construit un système d'analyse météorologique prédictive basé sur
 | **13h - 14h** | ~610 | 🟢 **Optimal** | Fenêtre idéale pour les sorties |
 | **18h - 20h** | 680+ | 🟠 **Modéré** | Spray anti-frisottis recommandé |
 
-#### 📈 Analyse Détaillée
+**📈 Analyse Détaillée :**
 
-🔴 Pic Matinal (8h-9h)
-└─ Combinaison humidité résiduelle + vent montant
-└─ Action : Coiffure protectrice ou bonnet
-
-🟢 Zone de Confort (13h)
-└─ Assèchement naturel de l'air par le soleil
-└─ Action : Moment optimal pour les rendez-vous
-
-🟠 Remontée Progressive (18h+)
-└─ Hausse de l'humidité au coucher du soleil
-└─ Action : Prévoir protection légère
-
-text
+- **🔴 Pic Matinal (8h-9h)** : Combinaison humidité résiduelle + vent montant → Action : Coiffure protectrice ou bonnet
+- **🟢 Zone de Confort (13h)** : Assèchement naturel de l'air par le soleil → Action : Moment optimal pour les rendez-vous
+- **🟠 Remontée Progressive (18h+)** : Hausse de l'humidité au coucher du soleil → Action : Prévoir protection légère
 
 ---
 
@@ -79,109 +69,90 @@ text
 
 ## ⚙️ Stack Technique
 
-### Architecture du Pipeline ETL
+### Technologies Utilisées
 
-```mermaid
-graph LR
-    A[🌍 API Nominatim] -->|Géocodage| B[Extract]
-    C[🌦️ API Open-Meteo] -->|Données Météo| B
-    B --> D[Transform<br/>Pandas + NumPy]
-    D --> E[Calculate Index]
-    E --> F[📊 Visualisation<br/>Seaborn]
-    F --> G[💾 Export PNG]
-Détail des Technologies
-Composant	Technologie	Rôle
-Extraction	requests	Appels API REST (Nominatim + Open-Meteo)
-Transformation	pandas	Nettoyage JSON, parsing temporel
-Calcul	numpy	Opérations vectorisées sur l'index
-Visualisation	seaborn + matplotlib	Création de graphiques statistiques
-Automatisation	os + pathlib	Gestion dynamique des répertoires
-📁 Structure du Projet
-text
+| Composant | Technologie | Rôle |
+|:----------|:-----------|:-----|
+| **Extraction** | `requests` | Appels API REST (Nominatim + Open-Meteo) |
+| **Transformation** | `pandas` | Nettoyage JSON, parsing temporel |
+| **Calcul** | `numpy` | Opérations vectorisées sur l'index |
+| **Visualisation** | `seaborn` + `matplotlib` | Création de graphiques statistiques |
+| **Automatisation** | `os` + `pathlib` | Gestion dynamique des répertoires |
+
+---
+
+## 📁 Structure du Projet
+
 03-projets_finaux/Prediction_meteo/
 │
-├── 📂 outputs/              # 🎨 Graphiques générés automatiquement
-│   ├── day.png             # Analyse hebdomadaire (7 jours)
-│   └── hour.png            # Analyse horaire (24h)
+├── 📂 outputs/ # Graphiques générés automatiquement
+│ ├── day.png # Analyse hebdomadaire (7 jours)
+│ └── hour.png # Analyse horaire (24h)
 │
-├── 📄 main.ipynb           # 🧪 Notebook Jupyter (pipeline complet)
-├── 📄 README.md            # 📖 Documentation (ce fichier)
-└── 📄 .gitignore           # 🚫 Fichiers exclus de Git
-🧮 Méthodologie : Le "Bad Hair Index"
-Formule de Calcul
-L'indice capture l'effet synergique de deux facteurs météorologiques :
+├── 📄 main.ipynb # Notebook Jupyter (pipeline complet)
+├── 📄 README.md # Documentation (ce fichier)
+└── 📄 .gitignore # Fichiers exclus de Git
 
-Bad Hair Index
-=
-Humidit
-e
-ˊ
- Relative (%)
-×
-Vitesse du Vent (km/h)
-Bad Hair Index=Humidit 
-e
-ˊ
-  Relative (%)×Vitesse du Vent (km/h)
-📊 Échelle d'Interprétation
-Index	Catégorie	Risque	Action Recommandée
-< 500	🟢 Excellent	Minimal	Aucune précaution
-500-700	🟡 Modéré	Moyen	Spray protecteur léger
-700-900	🟠 Élevé	Important	Coiffure protectrice
-> 900	🔴 Critique	Maximal	Éviter toute sortie
-🔬 Justification Scientifique
-1. Humidité Relative (%)
+text
 
-Provoque le gonflement de la cuticule capillaire
+---
 
-Responsable des frisottis et de la perte de volume
+## 🧮 Méthodologie : Le "Bad Hair Index"
 
-2. Vitesse du Vent (km/h)
+### Formule de Calcul
 
-Amplifie le désordre mécanique
+L'indice capture l'**effet synergique** de deux facteurs météorologiques :
 
-Cause l'emmêlement et la déshydratation
+**Bad Hair Index = Humidité Relative (%) × Vitesse du Vent (km/h)**
 
-3. Interaction Multiplicative
+### 📊 Échelle d'Interprétation
 
-L'effet est synergique (non additif)
+| Index | Catégorie | Risque | Action Recommandée |
+|:-----:|:----------|:-------|:-------------------|
+| **< 500** | 🟢 Excellent | Minimal | Aucune précaution |
+| **500-700** | 🟡 Modéré | Moyen | Spray protecteur léger |
+| **700-900** | 🟠 Élevé | Important | Coiffure protectrice |
+| **> 900** | 🔴 Critique | Maximal | Éviter toute sortie |
 
-Un vent faible + forte humidité = Risque modéré
+### 🔬 Justification Scientifique
 
-Un vent fort + forte humidité = Risque critique
+**1. Humidité Relative (%)**
+- Provoque le gonflement de la cuticule capillaire
+- Responsable des frisottis et de la perte de volume
 
-Note : Basé sur des principes de cosmétologie capillaire (Journal of Cosmetic Science)
+**2. Vitesse du Vent (km/h)**
+- Amplifie le désordre mécanique
+- Cause l'emmêlement et la déshydratation
 
-🚀 Installation Rapide
-Prérequis
-Python 3.9 ou supérieur
+**3. Interaction Multiplicative**
+- L'effet est synergique (non additif)
+- Vent faible + forte humidité = Risque modéré
+- Vent fort + forte humidité = Risque critique
 
-pip installé
+> **Note :** Basé sur des principes de cosmétologie capillaire
 
-Connexion Internet (appels API)
+---
 
-Étapes
-bash
+## 🚀 Installation Rapide
+
+### Prérequis
+
+- Python **3.9** ou supérieur
+- `pip` installé
+- Connexion Internet (appels API)
+
+### Étapes d'Installation
+
+```bash
 # 1. Cloner le projet
 git clone https://github.com/MoussaTheAnalyst/bad-hair-predictor.git
 cd bad-hair-predictor
 
 # 2. Installer les dépendances
-pip install pandas seaborn matplotlib requests
+pip install pandas seaborn matplotlib requests numpy
 
 # 3. Lancer le notebook
 jupyter notebook main.ipynb
-Installation via Requirements (Recommandé)
-bash
-# Créer un fichier requirements.txt avec :
-pandas>=2.0.0
-seaborn>=0.12.0
-matplotlib>=3.7.0
-requests>=2.31.0
-numpy>=1.24.0
-
-# Installer
-pip install -r requirements.txt
 💻 Utilisation
 Mode Notebook (Recommandé)
 Ouvrez main.ipynb dans Jupyter
@@ -207,7 +178,7 @@ city	str	Nom de la ville	"Paris"
 agg_var	str	Granularité ("hour" ou "day")	"hour"
 days	int	Nombre de jours de prévision	7
 📈 Exemple de Sortie
-bash
+text
 🌍 Géocodage : Montrouge, France
 📍 Coordonnées : 48.8167°N, 2.3167°E
 
@@ -254,22 +225,3 @@ Pushez (git push origin feature/AmazingFeature)
 
 Ouvrez une Pull Request
 
-📧 Contact
-Moussa SISSOKO
-💼 LinkedIn : linkedin.com/in/moussa-sissoko
-🐙 GitHub : @MoussaTheAnalyst
-
-⚖️ Licence
-Ce projet est sous licence MIT. Consultez le fichier LICENSE pour plus de détails.
-
-
-Seaborn/Matplotlib pour les visualisations
-
-
-
-<div align="center">
-⭐ Si ce projet vous a été utile, n'hésitez pas à lui donner une étoile !
-
-Made with ❤️ and ☕ by Moussa SISSOKO
-
-</div> ```
